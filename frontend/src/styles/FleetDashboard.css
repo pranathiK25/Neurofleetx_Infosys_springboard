@@ -1,0 +1,184 @@
+:root {
+  /* --- DARK THEME COLOR PALETTE --- */
+  --primary: #6366f1;       /* Indigo/Purple accent */
+  --bg-body: #111827;       /* Deep Black/Blue background */
+  --bg-card: #1f2937;       /* Dark Grey for cards */
+  --text-main: #f9fafb;     /* White text */
+  --text-muted: #9ca3af;    /* Light gray text */
+  --border: #374151;        /* Dark borders */
+  --green: #10b981;         /* Success Green */
+  --orange: #f59e0b;        /* Warning Orange */
+  --hover-bg: #374151;      /* Hover color */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--bg-body); /* Ensures page background is dark */
+  color: var(--text-main);
+}
+
+/* --- DASHBOARD WRAPPER (Fixes the "Spoiled" Background) --- */
+.dashboard-container {
+  background-color: var(--bg-body); /* Solid dark color covers the car image */
+  min-height: 100vh;                /* Forces it to take full screen height */
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;           /* Prevents scrollbars from padding */
+  position: relative;
+  z-index: 10;                      /* sits on top of any background images */
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  background: var(--bg-card);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.brand { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+.brand-sub { font-weight: 400; color: var(--text-muted); font-size: 0.9rem; margin-left: 10px; }
+.nav-right { display: flex; align-items: center; gap: 20px; color: var(--text-main); }
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- HEADER SECTION --- */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 25px;
+}
+
+.header-titles h1 { margin: 0; font-size: 1.8rem; color: var(--text-main); }
+.header-titles p { margin: 5px 0 0 0; color: var(--text-muted); font-size: 0.9rem; }
+
+.header-controls { display: flex; gap: 10px; }
+.header-controls input, .header-controls select {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-radius: 6px;
+}
+.btn-dark {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* --- STATS GRID --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Dark shadow for depth */
+}
+
+.stat-card h3 { margin: 0; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+.stat-value { font-size: 1.8rem; font-weight: 700; margin: 10px 0 5px 0; color: var(--text-main); }
+.stat-sub { font-size: 0.8rem; color: var(--text-muted); }
+
+/* --- MAIN CONTENT GRID --- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+/* --- GENERIC CARD STYLES --- */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+.card-header h2 { margin: 0; font-size: 1.1rem; color: var(--text-main); }
+
+/* --- TABLES --- */
+.fleet-table { width: 100%; border-collapse: collapse; }
+.fleet-table th { text-align: left; color: var(--text-muted); padding-bottom: 15px; border-bottom: 1px solid var(--border); }
+.fleet-table td { padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text-main); }
+
+/* --- BADGES --- */
+.badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+.badge.active { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #059669; }
+.badge.maint { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #d97706; }
+.badge.idle { background: rgba(107, 114, 128, 0.2); color: #d1d5db; border: 1px solid #4b5563; }
+
+/* --- SIDEBAR WIDGETS --- */
+.trip-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+.trip-details { font-size: 0.9rem; }
+.trip-id { font-weight: bold; margin-bottom: 4px; color: var(--text-main); }
+.trip-route { font-size: 0.8rem; color: var(--text-muted); }
+
+.trip-actions {
+  display: flex;
+  gap: 8px; /* Added gap to stop buttons touching */
+}
+.link-view { background: none; border: none; color: var(--primary); cursor: pointer; }
+.btn-green-sm {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid #059669;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- MAP CONTAINER --- */
+.map-container-style {
+  height: 300px;
+  width: 100%;
+  background: #2d3748; /* Placeholder dark gray */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .content-grid { grid-template-columns: 1fr; }
+}

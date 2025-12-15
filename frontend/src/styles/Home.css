@@ -1,0 +1,192 @@
+/* src/styles/Home.css */
+
+/* --- 1. MAIN PAGE LAYOUT --- */
+.home-layout {
+  min-height: 100vh;
+  /* Dark Automotive Background */
+  background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+
+.page-container {
+  padding: 40px;
+  flex: 1; /* Ensures content fills space */
+}
+
+/* --- 2. NAVBAR STYLES (THE FIX) --- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ➤ CRITICAL: Pushes Left and Right apart */
+  width: 100%;                    /* ➤ CRITICAL: Forces bar to span full width */
+  padding: 15px 30px;
+  box-sizing: border-box;         /* Ensures padding doesn't break width */
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left Side (Logo) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* Right Side (Button Container) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* ➤ EXTRA INSURANCE: Pushes this div to the far right */
+}
+
+/* Profile Button Style */
+.profile-btn-header {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.profile-btn-header:hover {
+  background-color: white;
+  color: black;
+  border-color: white;
+}
+
+/* --- 3. HERO SECTION --- */
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* --- 4. DASHBOARD GRID SYSTEM (Your existing code) --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Responsive Grid */
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Individual Cards */
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+  color: #333;
+  text-align: left;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+.card-body h2 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  color: #000;
+}
+
+.status-text {
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+/* --- ROLE BADGE --- */
+.role-badge {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.action-btn.secondary {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.action-btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- PREVENT DASHBOARD DUPLICATES --- */
+/* If dashboards have their own navbars, hide them here */
+.dashboard-wrapper .navbar {
+    display: none !important;
+}
