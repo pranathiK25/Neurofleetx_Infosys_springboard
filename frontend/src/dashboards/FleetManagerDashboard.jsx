@@ -1,186 +1,188 @@
+import React, { useState } from 'react';
+import '../styles/FleetDashboard.css';
+import UserMap from '../components/UserMap.jsx'; // <--- IMPORTING YOUR EXISTING MAP
 
-import '../styles/FleetDashboard.css'; 
+const FleetDashboard = () => {
+  // --- STATE ---
+  // Added 'location' field to mock data
+  const [vehicles, setVehicles] = useState([
+    { id: 1, name: "Toyota Innova", plate: "MH-12-JN-1234", status: "Active", location: "Pune, India" },
+    { id: 2, name: "Tata Winger", plate: "MH-14-GT-9988", status: "Maintenance", location: "Mumbai, India" },
+    { id: 3, name: "Maruti Ertiga", plate: "MH-02-AB-7766", status: "Active", location: "Nashik, India" },
+    { id: 4, name: "Mahindra XUV", plate: "MH-04-XY-4545", status: "Active", location: "Nagpur, India" },
+  ]);
 
-const Dashboard = () => {
-  const statsData = [
-    { title: "Active Vehicles", value: "42", sub: "60 total" },
-    { title: "Active Trips", value: "8", sub: "154 completed (week)" },
-    { title: "Active Drivers", value: "38", sub: "Available now" },
-    { title: "Weekly Revenue", value: "₹32,450", sub: "This week" },
-    { title: "Fleet Size", value: "60", sub: "All registered" },
-    { title: "Completed Trips (W)", value: "154", sub: "Week total" },
+  const drivers = [
+    { id: 101, name: "Rohit Sharma", phone: "+91 98900 12345", rating: 4.8 },
+    { id: 102, name: "Virat Kohli", phone: "+91 99220 67890", rating: 4.5 },
   ];
 
-  const vehiclesData = [
-    { id: "VH-1000", model: "Toyota Innova", driver: "Rohit S.", location: "Pune", km: "66 km", status: "active" },
-    { id: "VH-1001", model: "Winger", driver: "Kumar P.", location: "Sangli", km: "10 km", status: "maintenance" },
-    { id: "VH-1002", model: "Tata Ace", driver: "Asha R.", location: "Pandharpur", km: "187 km", status: "idle" },
-    { id: "VH-1003", model: "Mahindra e-Verito", driver: "Siddhesh M.", location: "Mumbai", km: "141 km", status: "active" },
-    { id: "VH-1004", model: "Toyota Innova", driver: "Rohit S.", location: "Pune", km: "45 km", status: "maintenance" },
-  ];
+  // Map State: Defaults to "Maharashtra"
+  const [mapLocation, setMapLocation] = useState("Maharashtra, India");
+  
+  // Modal State
+  const [showModal, setShowModal] = useState(false);
+  const [newVehicle, setNewVehicle] = useState({ name: '', plate: '', status: 'Active', location: '' });
 
-  const activeTrips = [
-    { id: "TR-9001", vehicle: "VH-1001", route: "Sangli → Pandharpur • ETA 22 min" },
-    { id: "TR-9002", vehicle: "VH-1003", route: "Pune → Mumbai • ETA 120 min" },
-  ];
-
-  const driversData = [
-    { name: "Rohit S.", meta: "DR-101 • 4.7 ★" },
-    { name: "Asha R.", meta: "DR-102 • 4.9 ★" },
-    { name: "Siddhesh M.", meta: "DR-103 • 4.4 ★" },
-  ];
-
-  const getStatusClass = (status) => {
-    switch (status) {
-      case 'active': return 'badge active';
-      case 'maintenance': return 'badge maint';
-      case 'idle': return 'badge idle';
-      default: return 'badge';
+  // --- HANDLERS ---
+  
+  // 1. Update Map when "View" is clicked
+  const handleViewMap = (location) => {
+    if (location) {
+      setMapLocation(location);
+    } else {
+      alert("No location data for this vehicle");
     }
   };
 
-  return (
-    <div className="app-container">
-      
-      <nav className="navbar">
-        <div className="brand">
-          NeuroFleetX <span className="brand-sub">Fleet Manager Dashboard</span>
-        </div>
-        <div className="nav-right">
-          <span>Welcome, Fleet Manager</span>
-          <button className="btn-primary">New Trip</button>
-        </div>
-      </nav>
+  const handleDelete = (id) => setVehicles(vehicles.filter(v => v.id !== id));
+  
+  const handleAddClick = () => setShowModal(true);
+  
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewVehicle({ ...newVehicle, [name]: value });
+  };
 
-      <div className="dashboard-container">
+  const handleSave = () => {
+    if (!newVehicle.name || !newVehicle.plate) return alert("Please fill details");
+    setVehicles([...vehicles, { id: Date.now(), ...newVehicle }]); 
+    setShowModal(false);
+    setNewVehicle({ name: '', plate: '', status: 'Active', location: '' });
+  };
+
+  return (
+    <div className="dashboard-container">
+      
+      {/* HEADER */}
+      <div className="dashboard-header">
+        <h1>Fleet Overview</h1>
+        <p>Manage vehicles, drivers, and live tracking</p>
+      </div>
+
+      {/* STATS GRID */}
+      <div className="stats-grid">
+        <div className="glass-panel stat-card">
+          <h3>Total Vehicles</h3>
+          <div className="stat-value">{vehicles.length}</div>
+        </div>
+        <div className="glass-panel stat-card">
+          <h3>Active Bookings</h3>
+          <div className="stat-value">12</div>
+        </div>
+        <div className="glass-panel stat-card">
+          <h3>Total Drivers</h3>
+          <div className="stat-value">{drivers.length}</div>
+        </div>
         
-        <div className="header-section">
-          <div className="header-titles">
-            <h1>Fleet Overview</h1>
-            <p>Snapshot of fleet health, active trips, and revenue</p>
-          </div>
-          <div className="header-controls">
-            <div className="search-wrapper">
-              <input type="text" placeholder="Search vehicles, drivers, loc..." />
+        <button className="glass-panel add-btn-card" onClick={handleAddClick}>
+          <div className="plus-icon">+</div>
+          <span>Add Vehicle</span>
+        </button>
+      </div>
+
+      {/* MAIN CONTENT SPLIT */}
+      <div className="content-split">
+        
+        {/* LEFT COLUMN: VEHICLE LIST */}
+        <div className="left-column">
+          <div className="glass-panel table-panel">
+            <div className="panel-header">
+              <h2>Fleet Management</h2>
             </div>
-            <select className="status-select">
-              <option>All status</option>
+            <table className="glass-table">
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Status</th>
+                  <th>Location</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {vehicles.map((v) => (
+                  <tr key={v.id}>
+                    <td>
+                      <div>{v.name}</div>
+                      <div className="mono" style={{fontSize: '0.8rem', opacity: 0.7}}>{v.plate}</div>
+                    </td>
+                    <td>
+                      <span className={`status-badge ${v.status.toLowerCase()}`}>
+                        {v.status}
+                      </span>
+                    </td>
+                    <td>{v.location || "N/A"}</td>
+                    <td className="actions-cell">
+                      {/* BUTTON TO TRIGGER MAP UPDATE */}
+                      <button 
+                        className="btn-icon view" 
+                        title="Locate on Map"
+                        onClick={() => handleViewMap(v.location)}
+                      >
+                        📍 Map
+                      </button>
+                      
+                      <button className="btn-icon delete" onClick={() => handleDelete(v.id)}>
+                        🗑️
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN: LIVE MAP */}
+        <div className="right-column">
+          <div className="glass-panel map-panel">
+            <div className="panel-header">
+              {/* Shows which location is currently active */}
+              <h2>Live Tracking: {mapLocation}</h2>
+            </div>
+            
+            <div className="map-container-wrapper">
+              {/* PASSING STATE TO YOUR USERMAP COMPONENT */}
+              <UserMap location={mapLocation} />
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+
+      {/* MODAL (ADD VEHICLE) */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Add New Vehicle</h2>
+            
+            <label>Model</label>
+            <input name="name" value={newVehicle.name} onChange={handleInputChange} placeholder="e.g. Toyota Innova" />
+            
+            <label>Plate No.</label>
+            <input name="plate" value={newVehicle.plate} onChange={handleInputChange} placeholder="MH-12-AB-1234" />
+            
+            <label>Location (City)</label>
+            <input name="location" value={newVehicle.location} onChange={handleInputChange} placeholder="e.g. Pune" />
+            
+            <label>Status</label>
+            <select name="status" value={newVehicle.status} onChange={handleInputChange}>
               <option>Active</option>
               <option>Maintenance</option>
+              <option>Idle</option>
             </select>
-            <button className="btn-dark">Export CSV</button>
-          </div>
-        </div>
 
-        <div className="stats-grid">
-          {statsData.map((stat, index) => (
-            <div className="stat-card" key={index}>
-              <h3>{stat.title}</h3>
-              <div className="stat-value">{stat.value}</div>
-              <div className="stat-sub">{stat.sub}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="content-grid">
-          
-          <div className="main-column">
-            <div className="card table-card">
-              <div className="card-header">
-                <h2>Vehicles</h2>
-                <span className="results-count">Showing {vehiclesData.length} results</span>
-              </div>
-              <table className="fleet-table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Model</th>
-                    <th>Driver</th>
-                    <th>Location</th>
-                    <th>KMs Today</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {vehiclesData.map((v, i) => (
-                    <tr key={i}>
-                      <td className="fw-bold">{v.id}</td>
-                      <td>{v.model}</td>
-                      <td>{v.driver}</td>
-                      <td>{v.location}</td>
-                      <td>{v.km}</td>
-                      <td>
-                        <span className={getStatusClass(v.status)}>
-                          {v.status}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="modal-actions">
+              <button className="btn-cancel" onClick={() => setShowModal(false)}>Cancel</button>
+              <button className="btn-save" onClick={handleSave}>Save</button>
             </div>
           </div>
-
-          <div className="sidebar-column">
-            
-            <div className="card">
-              <div className="card-header">
-                <h2>Active Trips</h2>
-                <span className="results-count">{activeTrips.length} ongoing</span>
-              </div>
-              {activeTrips.map((trip, i) => (
-                <div className="trip-item" key={i}>
-                  <div className="trip-details">
-                    <div className="trip-id">{trip.id} — {trip.vehicle}</div>
-                    <div className="trip-route">{trip.route}</div>
-                  </div>
-                  <div className="trip-actions">
-                    <button className="link-view">View</button>
-                    <button className="btn-green-sm">Mark complete</button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="card">
-              <div className="card-header">
-                <h2>Drivers</h2>
-              </div>
-              {driversData.map((driver, i) => (
-                <div className="driver-item" key={i}>
-                  <div className="driver-info">
-                    <div className="driver-name">{driver.name}</div>
-                    <div className="driver-meta">{driver.meta}</div>
-                  </div>
-                  <div className="driver-actions">
-                    <button className="btn-text">Call</button>
-                    <button className="btn-text">Msg</button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="card map-card">
-              <div className="card-header">
-                <h2>Map / Visualization</h2>
-              </div>
-              <div className="map-placeholder">
-                <div className="map-controls">
-                  <button>+</button>
-                  <button>-</button>
-                </div>
-                <div className="map-dot dot-1"></div>
-                <div className="map-dot dot-2"></div>
-                <div className="map-dot dot-3"></div>
-                <div className="map-footer">Live mode: Simulation (client-side)</div>
-              </div>
-            </div>
-
-          </div>
         </div>
-      </div>
+      )}
+
     </div>
   );
 };
 
-export default Dashboard;
+export default FleetDashboard;
