@@ -138,7 +138,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh; 
-  background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop'); /* UPDATE PATH HERE */
+  background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop'); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed; 

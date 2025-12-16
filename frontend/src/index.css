@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+/* src/index.css */
+body {
+  margin: 0;
+  padding: 0;
+  /* Ensure this points to YOUR car image */
+  background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed; 
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+}
