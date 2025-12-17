@@ -1,37 +1,30 @@
-/* --- 1. THEME VARIABLES --- */
+
 :root {
-  /* Dark Glass Backgrounds */
-  --glass-bg: rgba(15, 23, 42, 0.75); /* Dark Blue/Black tint */
-  --glass-panel: rgba(30, 41, 59, 0.7); /* Slightly lighter for cards */
+  --glass-bg: rgba(15, 23, 42, 0.75); 
+  --glass-panel: rgba(30, 41, 59, 0.7); 
   --glass-border: rgba(255, 255, 255, 0.1);
   
-  /* Text Colors */
   --text-main: #ffffff;
   --text-muted: #94a3b8;
   
-  /* Brand Colors */
-  --primary: #6366f1; /* Indigo */
+  --primary: #6366f1; 
   --primary-hover: #4f46e5;
-  --danger: #ef4444;  /* Red */
-  --success: #10b981; /* Green */
-  --warning: #f59e0b; /* Orange */
+  --danger: #ef4444;  
+  --success: #10b981; 
+  --warning: #f59e0b; 
   
-  /* Layout */
   --radius: 12px;
 }
 
-/* --- 2. MAIN CONTAINER --- */
-/* This overlay ensures text is readable over your car background */
 .dashboard-container {
   min-height: 100vh;
   padding: 30px;
   color: var(--text-main);
   font-family: 'Inter', 'Segoe UI', sans-serif;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.4); /* Global dimming for the background image */
+  background: rgba(0, 0, 0, 0.4); 
 }
 
-/* --- 3. HEADER --- */
 .dashboard-header {
   margin-bottom: 30px;
 }
@@ -47,7 +40,6 @@
   font-size: 1rem;
 }
 
-/* --- 4. STATS GRID --- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -55,7 +47,6 @@
   margin-bottom: 30px;
 }
 
-/* Glass Panel Style (Shared) */
 .glass-panel {
   background: var(--glass-panel);
   backdrop-filter: blur(12px);
@@ -80,18 +71,17 @@
   color: var(--text-main);
 }
 
-/* Add Button Card */
 .add-btn-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: rgba(99, 102, 241, 0.8); /* Primary Color */
+  background: rgba(99, 102, 241, 0.8); 
   border: 1px solid rgba(255,255,255,0.2);
   transition: transform 0.2s, background 0.2s;
   color: white;
-  padding: 0; /* Reset button padding */
+  padding: 0; 
 }
 .add-btn-card:hover {
   transform: translateY(-4px);
@@ -103,10 +93,9 @@
   margin-bottom: 5px;
 }
 
-/* --- 5. MAIN CONTENT LAYOUT --- */
 .content-split {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* 2 parts Left, 1 part Right */
+  grid-template-columns: 2fr 1fr; 
   gap: 25px;
 }
 
@@ -126,7 +115,6 @@
   font-size: 1.2rem;
 }
 
-/* --- 6. TABLES --- */
 .glass-table {
   width: 100%;
   border-collapse: collapse;
@@ -148,7 +136,6 @@
   color: var(--text-muted);
 }
 
-/* Status Badges */
 .status-badge {
   padding: 4px 10px;
   border-radius: 20px;
@@ -160,7 +147,6 @@
 .status-badge.maintenance { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid var(--warning); }
 .status-badge.idle { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #94a3b8; }
 
-/* Table Actions */
 .actions-cell {
   display: flex;
   gap: 8px;
@@ -182,7 +168,6 @@
   background: rgba(239, 68, 68, 0.4);
 }
 
-/* --- 7. DRIVER & MAP LISTS --- */
 .driver-row-simple {
   display: flex;
   justify-content: space-between;
@@ -191,7 +176,6 @@
 }
 .star { color: #facc15; }
 
-/* Map Placeholder */
 .map-panel {
   flex-grow: 1;
   display: flex;
@@ -209,14 +193,13 @@
   border: 1px dashed var(--glass-border);
 }
 
-/* --- 8. MODAL POPUP (NEW) --- */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Dark dimmer */
+  background: rgba(0, 0, 0, 0.8); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,7 +210,7 @@
 .modal-content {
   width: 100%;
   max-width: 450px;
-  background: #1e293b; /* Solid dark color for modal, less transparent */
+  background: #1e293b; 
   border: 1px solid var(--glass-border);
   padding: 30px;
   border-radius: 16px;
@@ -303,7 +286,6 @@
   color: white;
 }
 
-/* --- 9. RESPONSIVE --- */
 @media (max-width: 1024px) {
   .content-split { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -311,4 +293,43 @@
 
 @media (max-width: 600px) {
   .stats-grid { grid-template-columns: 1fr; }
+}
+
+
+
+
+.alert-item {
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.alert-item.warning { color: #ff9800; } 
+.alert-item.error { color: #ff4d4d; }   
+.alert-item.info { color: #2196f3; }    
+.alert-time { opacity: 0.5; font-size: 0.75rem; margin-right: 5px; }
+
+.status-badge.needs-service {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+  border: 1px solid #ff9800;
+}
+.status-badge.idle {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  border: 1px solid #999;
+}
+
+.map-container-wrapper {
+  width: 100%;
+  height: 500px;       
+  min-height: 500px;  
+  max-height: 500px;   
+  position: relative;
+  overflow: hidden;
+  background-color: #2c2c3e; 
+  border-radius: 12px;
+}
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
 }

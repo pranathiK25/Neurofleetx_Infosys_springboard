@@ -1,70 +1,149 @@
-# Getting Started with Create React App
+# 🚀 NeuroFleetX  
+## AI-Powered Urban Fleet & Traffic Intelligence Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 🌍 **Smart Mobility for Smart Cities**  
+> NeuroFleetX is an AI-driven urban intelligence platform that enables real-time fleet monitoring, traffic analysis, and data-driven decision-making using modern full-stack technologies.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌆 About NeuroFleetX
+**NeuroFleetX** addresses urban transportation challenges by integrating **AI intelligence, real-time data streams, and interactive dashboards**.
 
-### `npm start`
+This repository represents my **personal contribution** to the NeuroFleetX project and follows **industry-standard development and Git collaboration practices**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🎯 Objectives
+✔ Optimize urban fleet operations  
+✔ Analyze traffic flow and congestion patterns  
+✔ Generate AI-powered insights  
+✔ Build a scalable, secure, production-ready system  
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Key Features
+📍 Real-time fleet tracking  
+🚦 Traffic congestion analysis  
+🤖 AI-powered predictions & insights  
+📊 Interactive dashboards & analytics  
+🔐 Secure authentication using JWT  
+🔄 Live updates via WebSockets  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧱 Technology Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🎨 Frontend
+• Angular 19 **or** React 19  
+• Responsive, component-based UI  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ⚙️ Backend
+• Java Spring Boot  
+• RESTful APIs  
 
-### `npm run eject`
+### 🗄️ Database
+• MySQL  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🧠 AI & Intelligence
+• Python Flask Microservice **or** Java-based ML  
+• Traffic analytics & prediction logic  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🗺️ Maps & Location Services
+• Google Maps API  
+• Leaflet.js  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔐 Security
+• Spring Security  
+• JWT Authentication & Authorization  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 📈 Data Visualization
+• Chart.js  
+• ApexCharts  
+• Recharts  
 
-## Learn More
+### 🔌 Integrations & Services
+• Email Service (SMTP)  
+• WebSockets for real-time updates  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🏗️ System Architecture
+NeuroFleetX follows a **layered and modular architecture**:
 
-### Code Splitting
+🔹 **Data Sources Layer**  
+Fleet location data, traffic information, and user interactions  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔹 **AI & Analytics Layer**  
+Machine learning models analyze traffic patterns and generate insights  
 
-### Analyzing the Bundle Size
+🔹 **Backend Services Layer**  
+Spring Boot APIs handle business logic, security, and data flow  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🔹 **Presentation Layer**  
+Angular / React dashboards visualize real-time data and analytics  
 
-### Making a Progressive Web App
+This design ensures **scalability, maintainability, and real-world deployability**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 📂 Project Structure
+📁 backend  
+📁 frontend  
+📁 ai-services  
+📁 database  
+📁 docs  
+📄 README.md  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🚀 Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 🔹 Prerequisites
+• Java JDK  
+• Node.js  
+• MySQL  
+• Git  
 
-### `npm run build` fails to minify
+### 🔹 Setup Steps
+1️⃣ Clone the repository  
+2️⃣ Configure environment variables  
+3️⃣ Start backend services  
+4️⃣ Launch frontend application  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📌 Use Cases
+🏙️ Urban fleet monitoring  
+🚗 Traffic congestion analysis  
+📊 Smart city mobility planning  
+🤖 AI-driven operational insights  
+
+---
+
+## 🧠 What This Project Demonstrates
+✅ Full-stack development skills  
+✅ Practical AI application  
+✅ Secure backend design  
+✅ Real-world Git workflow (branches & PRs)  
+✅ Clean, professional documentation  
+
+---
+
+## 🔮 Future Enhancements
+🔹 Predictive congestion forecasting  
+🔹 AI-based route optimization  
+🔹 IoT & sensor integration  
+🔹 Advanced reporting dashboards  
+
+---
+
+## 👤 Author
+**Pranathi**  
+Personal GitHub Repository – *NeuroFleetX*
+
+---
+
+## 📄 License
+This project was developed as part of the **Infosys Springboard Virtual Internship Program 6.0**  
+and is intended for **learning, demonstration, and interview purposes**.
+
