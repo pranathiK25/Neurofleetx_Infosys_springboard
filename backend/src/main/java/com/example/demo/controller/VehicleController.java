@@ -5,6 +5,7 @@ import com.example.demo.model.Vehicle;
 import com.example.demo.repository.AlertRepository;
 import com.example.demo.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -55,5 +56,30 @@ public class VehicleController {
     public List<Alert> getRecentAlerts() {
         // This works now because we imported Alert and AlertRepository at the top
         return alertRepository.findTop5ByOrderByTimestampDesc();
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
+        return vehicleRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id, @RequestBody Vehicle details) {
+        return vehicleRepository.findById(id).map(vehicle -> {
+            vehicle.setName(details.getName());
+            vehicle.setPlate(details.getPlate());
+            vehicle.setStatus(details.getStatus());
+            vehicle.setLocation(details.getLocation());
+            // We typically don't update speed/battery manually in PUT,
+            // as the simulation handles that.
+            return ResponseEntity.ok(vehicleRepository.save(vehicle));
+        }).orElse(ResponseEntity.notFound().build());
+    }
+    @GetMapping("/available/all")
+    public List<Vehicle> getAvailableVehicles() {
+        // Assuming "Active" or "Idle" means available, and "Maintenance" is not
+        return vehicleRepository.findAll().stream()
+                .filter(v -> !"Maintenance".equalsIgnoreCase(v.getStatus()))
+                .toList();
     }
 }
