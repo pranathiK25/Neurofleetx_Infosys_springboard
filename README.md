@@ -16,9 +16,9 @@ User Management – Role-based access for fleet operators and administrators.
 
 Tech Stack
 Layer	Technology
-Frontend	React, Redux, Leaflet.js, Chart.js
+Frontend	React, Leaflet.js, Chart.js
 Backend	Java Spring Boot, REST APIs
-Database	MySQL / PostgreSQL (or as configured)
+Database	MySQL 
 Deployment	Render / Cloud (coming soon)
 Folder Structure
 NeuroFleetX_Infosys_springboard/
