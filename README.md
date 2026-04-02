@@ -64,10 +64,6 @@ npm install
 npm start
 ```
 
-App runs at **http://localhost:3000**
-
----
-
 ## 📖 Usage
 
 - Access the web dashboard via browser after deployment
