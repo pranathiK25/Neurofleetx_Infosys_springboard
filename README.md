@@ -67,6 +67,12 @@ Users will be able to access the web app via a single URL.
 
 Stay tuned for updates on Render / Cloud deployment.
 
+
+Certification
+<img width="989" height="696" alt="image" src="https://github.com/user-attachments/assets/d984be51-214f-449c-a16f-9d2140bd3dd2" />
+
+
+
 Contributing
 
 Contributions are welcome! Feel free to submit issues, feature requests, or pull requests.
