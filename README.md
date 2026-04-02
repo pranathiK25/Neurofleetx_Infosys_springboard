@@ -1,82 +1,105 @@
-NeuroFleetX – AI Powered Urban Fleet and Traffic Intelligence 🚗🧠
+# NeuroFleetX 🚗🧠
+### AI-Powered Urban Fleet & Traffic Intelligence
 
-NeuroFleetX is a full-stack application designed to provide smart fleet management and real-time traffic insights using AI-powered analytics. It helps urban fleet operators optimize routes, track vehicles, and make data-driven decisions to improve efficiency and reduce traffic congestion.
+> A full-stack intelligent fleet management platform built during the **Infosys Springboard Virtual Internship**.  
+> Helping urban fleet operators optimize routes, track vehicles, and make data-driven decisions in real time.
 
-Features
+---
 
-Fleet Dashboard – Monitor vehicle locations, status, and routes in real-time.
+## ✨ Features
 
-Traffic Analytics – AI-powered predictions for traffic flow and congestion.
+| Feature | Description |
+|--------|-------------|
+| 🗺️ **Fleet Dashboard** | Monitor vehicle locations, status, and routes in real-time |
+| 📊 **Traffic Analytics** | AI-powered predictions for traffic flow and congestion |
+| 📅 **Booking Management** | Manage customer bookings and schedule fleet operations |
+| 🤖 **Smart Recommendations** | Optimize routes and fleet assignments using AI |
+| 👥 **User Management** | Role-based access for fleet operators and administrators |
 
-Booking Management – Manage customer bookings and schedule fleet operations.
+---
 
-Smart Recommendations – Optimize routes and fleet assignments using AI.
+## 🛠️ Tech Stack
 
-User Management – Role-based access for fleet operators and administrators.
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | React, Leaflet.js, Chart.js |
+| **Backend** | Java Spring Boot, REST APIs |
+| **Database** | MySQL |
+| **Deployment** | Render / Cloud *(coming soon)* |
 
-Tech Stack
-Layer	Technology
-Frontend	React, Leaflet.js, Chart.js
-Backend	Java Spring Boot, REST APIs
-Database	MySQL 
-Deployment	Render / Cloud (coming soon)
-Folder Structure
-NeuroFleetX_Infosys_springboard/
-├── frontend/       # React app (UI + dashboards)
-├── backend/        # Java Spring Boot (APIs + server logic)
+---
+
+## 📁 Folder Structure
+
+```
+NeuroFleetX_Infosys_Springboard/
+├── frontend/       # React app — UI, dashboards, maps
+├── backend/        # Java Spring Boot — APIs, business logic
 ├── README.md       # Project documentation
 └── .gitignore
+```
 
-Installation & Running Locally
+---
 
-⚠️ Frontend build may require Node >= 18. Backend requires Java 17+.
+## 🚀 Running Locally
 
-Clone the repository
+> ⚠️ **Requirements:** Node.js >= 18 for frontend · Java 17+ for backend
 
+### 1. Clone the repository
+```bash
 git clone https://github.com/pranathiK25/Neurofleetx_Infosys_springboard.git
 cd Neurofleetx_Infosys_springboard
+```
 
-
-Backend
-
+### 2. Start the Backend
+```bash
 cd backend
+./mvnw spring-boot:run
+```
 
-
-Frontend (optional, if Node installed locally)
-
+### 3. Start the Frontend
+```bash
 cd frontend
 npm install
 npm start
+```
 
+App runs at **http://localhost:3000**
 
-Local deployment is optional. Production deployment is coming soon.
+---
 
-Usage
+## 📖 Usage
 
-Access the web dashboard via browser (after deployment)
+- Access the web dashboard via browser after deployment
+- Track fleet vehicles and manage bookings in real-time
+- Use AI recommendations to optimize routes and schedules
+- Manage users with role-based access control
 
-Track fleet vehicles and manage bookings
+---
 
-Use AI recommendations to optimize routes and schedules
+## ☁️ Deployment
 
-Deployment
+> 🔄 Full-stack deployment on **Render / Cloud** is coming soon.  
+> Users will be able to access the complete web app via a single URL.  
+> Watch this repo for updates!
 
-The full stack will be deployed online soon.
+---
 
-Users will be able to access the web app via a single URL.
+## 🏅 Certification
 
-Stay tuned for updates on Render / Cloud deployment.
+This project was developed as part of the **Infosys Springboard Virtual Internship Program**.
 
+<img width="989" alt="Infosys Springboard Internship Certificate" src="https://github.com/user-attachments/assets/d984be51-214f-449c-a16f-9d2140bd3dd2" />
 
-Certification
-<img width="989" height="696" alt="image" src="https://github.com/user-attachments/assets/d984be51-214f-449c-a16f-9d2140bd3dd2" />
+---
 
+## 🤝 Contributing
 
+Contributions are welcome!  
+Feel free to open issues, suggest features, or submit pull requests.
 
-Contributing
+---
 
-Contributions are welcome! Feel free to submit issues, feature requests, or pull requests.
+## 📄 License
 
-License
-
-MIT License © 2026
+MIT License © 2026 — **Pranathi K**
